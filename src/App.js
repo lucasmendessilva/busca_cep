@@ -1,12 +1,19 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {Component} from 'react';
+import {ScrollView} from 'react-native';
+import ListaComponent from './components/ListaComponent';
 
-const App = () => {
-  return (
-    <View>
-      <Text>TESTE</Text>
-    </View>
-  );
-};
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <ScrollView>
+        <ListaComponent />
+      </ScrollView>
+    );
+  }
+}
 
 export default App;
