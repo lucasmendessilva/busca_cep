@@ -3,7 +3,14 @@ import {View} from 'react-native';
 import axios from 'axios';
 import ItensComponents from './ItensComponents';
 
-const url = 'http://viacep.com.br/ws/14711000/json/';
+const urls = [
+  'http://viacep.com.br/ws/14711000/json/',
+  'http://viacep.com.br/ws/14711040/json/',
+  'http://viacep.com.br/ws/14711576/json/',
+];
+
+// 'http://viacep.com.br/ws/14711010/json/',
+//   'http://viacep.com.br/ws/14711020/json/',
 
 class ListaComponent extends Component {
   constructor(props) {
@@ -13,10 +20,11 @@ class ListaComponent extends Component {
 
   async UNSAFE_componentWillMount() {
     const lista = [];
-    const itens = await axios.get(url);
-    lista.push(itens.data);
-    this.setState({listaItens: lista});
-    console.log(itens);
+    for (let x = 0; x < urls.length; x++) {
+      const itens = await axios.get(urls[x]);
+      lista.push(itens.data);
+      this.setState({listaItens: lista});
+    }
   }
 
   render() {

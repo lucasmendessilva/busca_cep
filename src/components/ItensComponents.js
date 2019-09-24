@@ -3,15 +3,15 @@ import {Text, View, StyleSheet} from 'react-native';
 
 const ItensComponent = props => {
   return (
-    <View>
-      <View>
-        <Text>{props.cep}</Text>
+    <View style={estilo.container}>
+      <View style={estilo.Vcep}>
+        <Text style={estilo.Tcep}>{props.cep}</Text>
       </View>
-      <View>
+      <View style={estilo.Vendereco}>
         <Text>{props.endereco}</Text>
-        <Text>{props.bairo}</Text>
+        <Text>{props.bairro}</Text>
       </View>
-      <View>
+      <View style={estilo.Vcidade}>
         <Text>{props.cidade}</Text>
         <Text>{props.estado}</Text>
       </View>
@@ -20,15 +20,24 @@ const ItensComponent = props => {
 };
 
 const estilo = StyleSheet.create({
-  cep: {
+  container: {
+    flex: 1,
+    marginTop: 10,
+    borderWidth: 10,
+    borderColor: '#ccc',
+  },
+  Vcep: {
     alignItems: 'center',
-    fontSize: 30,
   },
-  endereco: {
-    justifyContent: 'center',
+  Tcep: {
+    fontSize: 25,
+    color: 'red',
   },
-  cidade: {
-    justifyContent: 'center',
+  Vendereco: {
+    alignItems: 'center',
+  },
+  Vcidade: {
+    alignItems: 'center',
   },
 });
 
